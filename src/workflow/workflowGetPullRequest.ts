@@ -30,7 +30,7 @@ export async function workflowGetPullRequest(): Promise<
       case 'pull_request':
         return getPullRequestForPullRequestWorkflow(octokit, payload)
       default:
-        throw new Error('unsupported workflow run event')
+        throw new Error(`unsupported workflow run event: ${payload.workflow_run.event}`)
     }
   })
 }
